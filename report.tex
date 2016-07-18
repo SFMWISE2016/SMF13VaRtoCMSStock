@@ -1,0 +1,71 @@
+\documentclass[answers,12pt]{exam}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\usepackage{enumerate}
+\usepackage{extarrows}
+\usepackage{indentfirst}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{geometry}
+\renewcommand{\qedsymbol}{$\blacksquare$}
+
+\title{\textbf{Report of Group 13}
+\footnote{Produced by JunFeng Huang,PeiKun Wu,ChunYu Cao,Liang Sun} \\
+\begin{center}
+\small{July $13^{th}$, 2016}
+\end{center} }
+
+\date{\vspace{-7ex}}
+
+\begin{document}
+\maketitle
+%% \union - Example: \union{j \in J}{A_j}
+\newcommand{\union}[2]{\underset{#1}\bigcup #2}
+
+%% \inter - like \union, but with \bigcap
+\newcommand{\inter}[2]{\underset{#1}\bigcap #2}
+
+
+%% Content goes here
+
+
+In modern financial market,changes in prices of equity,commodities, FX rates, interest rates creat exposure to market risk. As a result, one of the basic tasks of the company is managing risk.Furthermore, the risk measurement is the foundation and key of the financial market risk management. Here we introduce the method VaR which can measure the risk quantitatively. The full name of VaR is "Value at Risk". It refers to the part of the value of an asset that is exposed to risk. In this paper we will compute VaR of the share of China Merchants Securities in Delta-Normal model. Meanwhile, we will introduce two different methods for the estimation of the parameters¡ª¡ªRectangular Moving Average(RMA)and Exponential Moving Average(EMA)
+\\
+\indent
+In Delta-Normal model,we need some assumptions:
+$$L(Y_{T+1}\rvert F_t)=N(0,\sigma_t)$$
+\indent
+where $Y_{t+1}=logX_{t+1}-logX_t$,$X_t$ denotes the price of the share of CMS in period t. Then the possible profits and losses over a 1 day risk horizon are defined as a difference of portfolio values at $t+1$ and t:$$L_{t+1}=\lambda_t(X_{t+1}-X_t)\approx w_tY_{t+1}$$
+\indent
+Thus, we can prove that
+$$L(L_{t+1}\rvert F_t)=N(0,\sigma^2_t), \ \ where \ \ \sigma^2_t=w_t^T\Sigma_tw_t$$
+\indent
+And there are usually two different methods to estimate $\Sigma_t$:\\
+The first method RMA:
+$$\hat{\Sigma_t}=\frac{1}{T-1}\sum^T_{t=1}(Y_t-\mu)(Y_t-\mu)^T$$
+\indent
+where $\mu=E(Y_t)$. The expected value of the vector $Y_t$ is
+assumed to be zero in Delta-Normal model.\\
+The second method EMA:\\
+\indent
+The forecast of $\Sigma_t$ for time t is a weighted average
+of the previous forecast using a decay factor $0<\gamma<1$ and
+ of the latest squared innovations, using weight (1-$\gamma$):
+ $$\hat{\Sigma_t}=\gamma\Sigma_{t-1}+(1-\gamma)Y^2_{t-1}=
+ (1-\gamma)(Y^2_{t-1}+\gamma Y^2_{t-2}+\cdots +\gamma^m Y^2_{t-m})$$
+
+\indent
+Finally, VaR in a Delta-Normal framework is given by
+$$VaR_\alpha=\sigma_tz_\alpha$$
+\indent
+where $z_\alpha$ is the $\alpha$-quantile of the standard normal
+pdf.\\
+\indent
+In this report, using the data of the daily closing price of
+CMS from January 4, 2010 to July 8, 2016, we get the VaR timeplot
+in the following figure:\\
+$$\includegraphics[width=6in]{CMS}$$
+\end{document}
