@@ -1,0 +1,24 @@
+Name of Quantlet: SMF13VaRtoCMSStock
+
+Published in:     Statistics of Financial Markets I
+
+Description:      Apply Value at Risk Technics Using Delta Normal Method to  Share of China Merchants 
+                
+                  Securities Co. Ltd.(CMS) Listed in the Shanghai Securities Exchange,China(Trading code: 600999)
+    
+Used Algorithm:   VaR by Delta Normal Method with RMA and EMA
+
+Keywords:         VaR, RMA, EMA 
+ 
+
+Author:           Huang Junfeng, Wu Peikun, Sun Liang, Cao Chunyu
+
+Submitted:        2016/07/10
+
+Datafile:         CMS.txt
+
+Input:
+ 
+- CMS.txt : Daily Closing Price of CMS from January 4 2010 to July 8,2016
+
+Output:    VaR Analysis Results by RMA and EMA Estimating Methods Respectively.
